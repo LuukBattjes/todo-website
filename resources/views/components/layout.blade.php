@@ -10,7 +10,7 @@
 <body class="h-full bg-white">
     <nav class="flex bg-gray-100">
         <ul class="flex">
-            <x-nav-link href="/home">Home</x-nav-link>
+            <x-nav-link href="/">Home</x-nav-link>
             <x-nav-link href="/about">About</x-nav-link>
             <x-nav-link href="/contact">Contact</x-nav-link>
         </ul>
