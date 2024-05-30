@@ -8,11 +8,11 @@
 </head>
 
 <body class="h-full bg-white">
-    <nav class="flex bg-gray-100">
-        <ul class="flex">
-            <x-nav-link href="/">Home</x-nav-link>
-            <x-nav-link href="/about">About</x-nav-link>
-            <x-nav-link href="/contact">Contact</x-nav-link>
+    <nav class="flex bg-gray-200">
+        <ul class="flex mt-3 ml-16">
+            <x-nav-link href="/" :active="request()->is('/') ? true : false">Home</x-nav-link>
+            <x-nav-link href="/about" :active="request()->is('about') ? true : false">About</x-nav-link>
+            <x-nav-link href="/contact" :active="request()->is('contact') ? true : false">Contact</x-nav-link>
         </ul>
     </nav>
     <header class="m-3">
