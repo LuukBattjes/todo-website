@@ -15,6 +15,7 @@
             <x-nav-link href="/contact" :active="request()->is('contact') ? true : false">Contact</x-nav-link>
         </ul>
     </nav>
+
     <header class="m-3">
         {{ $heading }}
     </header>
