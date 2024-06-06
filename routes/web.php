@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\FormController;
+use App\Http\Controllers\TodoController;
+use App\Models\Todo;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/contact', [TodoController::class, 'test']);
 
 Route::get('/about', function () {
     return view('about');
 });
+
+Route::get('/', [TodoController::class, 'index']);
+Route::post('/todo', [TodoController::class, 'store']);
+Route::get('/todo/create', [TodoController::class, 'create']);
