@@ -23,9 +23,6 @@
     <hr class="w-full border-t-2 border-gray-300">
     <main class="m-3">
         {{ $slot }}
-        <x-form>
-
-        </x-form>
     </main>
 </body>
 

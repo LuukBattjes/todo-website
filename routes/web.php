@@ -23,5 +23,6 @@ Route::get('/about', function () {
 });
 
 Route::get('/', [TodoController::class, 'index']);
-Route::post('/todo', [TodoController::class, 'store']);
+Route::get('/delete{id}', [TodoController::class, 'delete']);
 Route::get('/todo/create', [TodoController::class, 'create']);
+Route::post('/todo', [TodoController::class, 'store']);

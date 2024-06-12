@@ -31,4 +31,14 @@ class TodoController extends Controller
     {
         return view('todos.create');
     }
+
+    public function delete($id)
+    {
+        $todo = Todo::find($id);
+
+        if ($todo) {
+            $todo->delete();
+        } 
+        return redirect('/');
+    }
 }
