@@ -2,9 +2,7 @@
     <x-slot:heading>
         Todos
     </x-slot:heading>
-
-    {{-- create todo --}}
-    @include('todo.create')    
+    @include('todo.create')
     <h1>Todo</h1>
     @foreach ($todos as $todo)
         @if ($todo->completed == false)

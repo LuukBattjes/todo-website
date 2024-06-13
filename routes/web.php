@@ -16,22 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [TodoController::class, 'todo']);
 
-
-
-
-Route::get('/completed', function () {
-    return view('pages.completed');
-});
-
-Route::get('/', [TodoController::class, 'index']);
+Route::get('/completed', [TodoController::class, 'completed']);
 
 Route::get('/destroy/{id}', [TodoController::class, 'destroy']);
 
 Route::post('/todo', [TodoController::class, 'store']);
 
-Route::post('/update/{id}', [TodoController::class, 'update']); 
+Route::post('/update/{id}', [TodoController::class, 'update']);
 
 Route::get('/edit/{todo}', [TodoController::class, 'edit']);
 
 Route::get('/complete/{todo}', [TodoController::class, 'complete']);
+
+Route::get('/decomplete/{todo}', [TodoController::class, 'decomplete']);

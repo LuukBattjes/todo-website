@@ -9,14 +9,20 @@ use PHPUnit\Framework\Constraint\SameSize;
 class TodoController extends Controller
 {
     //show all todos
-    public function index()
+    public function todo()
     {
         $todo = new Todo();
         $todos = $todo->all();
 
-        return view('pages.todos', [
-            'todos' => $todos
-        ]);
+        return view('pages.todos', ['todos' => $todos]);
+    }
+
+    public function completed()
+    {
+        $todo = new Todo();
+        $todos = $todo->all();
+
+        return view('pages.completed', ['todos' => $todos]);
     }
 
     //store todo
@@ -58,12 +64,15 @@ class TodoController extends Controller
 
     public function complete(Todo $todo)
     {
-        if ($todo->completed == false) {
-            $todo->completed = true;
-        } else {
-            $todo->completed = false;
-        }
+        $todo->completed = true;
         $todo->save();
         return redirect('/');
+    }
+
+    public function decomplete(Todo $todo)
+    {
+        $todo->completed = false;
+        $todo->save();
+        return redirect('/completed');
     }
 }
