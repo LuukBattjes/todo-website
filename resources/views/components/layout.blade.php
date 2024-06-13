@@ -8,22 +8,29 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="h-full bg-white">
-    <nav class="flex bg-gray-200">
-        <ul class="flex mt-3">
-            <x-nav-link href="/" :active="request()->is('/') ? true : false">Home</x-nav-link>
-            <x-nav-link href="/about" :active="request()->is('about') ? true : false">About</x-nav-link>
-            <x-nav-link href="/contact" :active="request()->is('contact') ? true : false">Contact</x-nav-link>
+<body class="h-screen bg-white flex">
+    
+    {{-- sidebar --}}
+    <div class="bg-gray-50 w-64 h-full rounded-lg">
+        <h1 class="text-center mt-4">sidebar</h1>
+        <ul class="flex flex-col m-3">
+            <x-nav-link href="/" :active="request()->is('/') ? true : false">Todos</x-nav-link>
+            <x-nav-link href="/completed" :active="request()->is('completed') ? true : false">Completed</x-nav-link>
         </ul>
-    </nav>
+    </div>
 
-    <header class="m-3">
-        {{ $heading }}
-    </header>
-    <hr class="w-full border-t-2 border-gray-300">
-    <main class="m-3">
-        {{ $slot }}
-    </main>
+    {{-- main content --}}
+    <div class="h-full w-full flex justify-center overflow-x-hidden bg-red-200">
+        <div class="flex flex-col">
+            <h1 class="font-bold text-center mt-4">
+                {{ $heading }}
+            </h1>
+            <main class="m-3">
+                {{ $slot }}
+            </main>
+        </div>
+    </div>
+
 </body>
 
 </html>

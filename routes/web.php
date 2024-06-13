@@ -16,12 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/about', function () {
-    return view('about');
-});
 
-Route::get('/contact', function () {
-    return view('contact');
+
+
+
+Route::get('/completed', function () {
+    return view('pages.completed');
 });
 
 Route::get('/', [TodoController::class, 'index']);
@@ -33,3 +33,5 @@ Route::post('/todo', [TodoController::class, 'store']);
 Route::post('/update/{id}', [TodoController::class, 'update']); 
 
 Route::get('/edit/{todo}', [TodoController::class, 'edit']);
+
+Route::get('/complete/{todo}', [TodoController::class, 'complete']);

@@ -14,7 +14,7 @@ class TodoController extends Controller
         $todo = new Todo();
         $todos = $todo->all();
 
-        return view('todo.index', [
+        return view('pages.todos', [
             'todos' => $todos
         ]);
     }
@@ -27,7 +27,7 @@ class TodoController extends Controller
         $todo->create([
             'todo' => $request->todo
         ]);
-        return redirect('/');
+        return redirect('/')->with('message', 'created');
     }
 
     //delete todo
@@ -54,5 +54,16 @@ class TodoController extends Controller
     public function edit(Todo $todo)
     {
         return view('todo.edit', ['todo' => $todo, 'id' => $todo->id]);
+    }
+
+    public function complete(Todo $todo)
+    {
+        if ($todo->completed == false) {
+            $todo->completed = true;
+        } else {
+            $todo->completed = false;
+        }
+        $todo->save();
+        return redirect('/');
     }
 }
