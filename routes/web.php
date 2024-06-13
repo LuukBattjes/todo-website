@@ -16,13 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/contact', [TodoController::class, 'test']);
-
 Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/contact', function () {
+    return view('contact');
+});
+
 Route::get('/', [TodoController::class, 'index']);
-Route::get('/delete{id}', [TodoController::class, 'delete']);
-Route::get('/todo/create', [TodoController::class, 'create']);
+
+Route::get('/destroy/{id}', [TodoController::class, 'destroy']);
+
+Route::get('/update/{todo}', [TodoController::class, 'update']);
+
+Route::post('/save/{todo}', [TodoController::class, 'save']); 
+
 Route::post('/todo', [TodoController::class, 'store']);

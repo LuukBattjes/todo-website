@@ -11,8 +11,8 @@
     </form>
     @foreach ($todos as $todo)
     <div class="flex">
-        <p>{{ $todo->todo }}</p>
-        <a class="text-red-500 ml-1" href="/delete?todo={{ $todo->id }}">delete</a>
+        <a href="{{ url('/update/' . $todo->id) }}" >{{ $todo->todo }}</a>
+        <a class="ml-1 text-red-500" href="{{ url('/destroy/' . $todo->id) }}">Delete</a>
     </div>
     @endforeach
 </x-layout>
