@@ -23,7 +23,7 @@ class TodoController extends Controller
     public function store(Request $request)
     {
         $todo = new Todo();
-        
+
         $todo->create([
             'todo' => $request->todo
         ]);
@@ -40,15 +40,19 @@ class TodoController extends Controller
         return redirect('/');
     }
 
-    //?
-    public function save(Todo $todo)
+    // update todo
+    public function update(Request $request, $id)
     {
-        dd($todo);
+        // dd($request->todo, $id);
+        $todo = Todo::find($id);
+        $todo->todo = $request->todo;
+        $todo->save();
+        return redirect('/');
     }
 
-    //?
-    public function update(Todo $todo)
+    // edit todo
+    public function edit(Todo $todo)
     {
-        return view('todo.test', $todo);
+        return view('todo.edit', ['todo' => $todo, 'id' => $todo->id]);
     }
 }
