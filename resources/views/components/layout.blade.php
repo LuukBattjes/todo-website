@@ -9,6 +9,7 @@
 </head>
 
 <body class="h-screen bg-white flex">
+
     {{-- sidebar --}}
     <div class="bg-gray-50 w-64 h-full rounded-lg">
         <h1 class="text-center mt-4">sidebar</h1>
@@ -19,17 +20,16 @@
     </div>
 
     {{-- main content --}}
-    <div class="h-full w-full flex justify-center overflow-x-hidden bg-red-200">
+    <div class="h-full w-full flex bg-white">
         <div class="flex flex-col">
-            <h1 class="font-bold text-center mt-4">
+            <h1 class="font-bold text-center m-4">
                 {{ $heading }}
             </h1>
-            <main>
+            <div>
                 {{ $slot }}
-            </main>
+            </div>
         </div>
     </div>
-
 </body>
 
 </html>
