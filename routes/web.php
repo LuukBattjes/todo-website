@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/test', function(){
+    return view('pages.test');
+});
+
 Route::get('/', [TodoController::class, 'todo']);
 
 Route::get('/completed', [TodoController::class, 'completed']);
